@@ -1,0 +1,5 @@
+---
+'@aulazero/task': patch
+---
+
+Test
