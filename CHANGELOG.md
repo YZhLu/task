@@ -1,5 +1,11 @@
 # @aulazero/task
 
+## 0.4.0
+
+### Minor Changes
+
+- 4334b80: All pages added!
+
 ## 0.3.2
 
 ### Patch Changes
