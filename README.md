@@ -4,11 +4,12 @@
 npm i @aulazero/task
 ```
 Adicione a seguinte linha ao atributo `content` do arquivo `tailwind.config.ts`:
->`'./node_modules/@aulazero/task/src/**/*.{html,js,svelte,ts}'`
+```bash
+'./node_modules/@aulazero/task/src/**/*.{html,js,svelte,ts}'
+```
+>Será algo parecido com: 
+`content: ['./src/**/*.{html,js,svelte,ts}', join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')],`
 
-Será algo parecido com: 
->`content: ['./src/**/*.{html,js,svelte,ts}', join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')],`
-	
 
 # create-svelte
 
