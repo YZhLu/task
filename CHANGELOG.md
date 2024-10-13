@@ -1,5 +1,11 @@
 # @aulazero/task
 
+## 0.3.2
+
+### Patch Changes
+
+- 415bd6a: add Alternative Type
+
 ## 0.3.1
 
 ### Patch Changes
