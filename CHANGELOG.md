@@ -1,5 +1,11 @@
 # @aulazero/task
 
+## 0.2.1
+
+### Patch Changes
+
+- d627c92: bug fix
+
 ## 0.2.0
 
 ### Minor Changes
