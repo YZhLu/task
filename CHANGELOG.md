@@ -1,5 +1,11 @@
 # @aulazero/task
 
+## 0.3.0
+
+### Minor Changes
+
+- aed92e5: add TaskEditPage and TaskRegisterPage
+
 ## 0.2.1
 
 ### Patch Changes
