@@ -1,5 +1,11 @@
 # @aulazero/task
 
+## 0.3.1
+
+### Patch Changes
+
+- 0b98c7b: add task store type
+
 ## 0.3.0
 
 ### Minor Changes
