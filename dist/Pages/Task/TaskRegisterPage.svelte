@@ -1,0 +1,188 @@
+<script>import { writable } from "svelte/store";
+import AlternativesListCard from "../../components/Alternatives/AlternativesListCard.svelte";
+import TaskBody from "../../components/TaskBody.svelte";
+import {
+  Autocomplete,
+  InputChip,
+  getToastStore
+} from "@skeletonlabs/skeleton";
+const toastStore = getToastStore();
+const alternatives = [
+  {
+    id: crypto.randomUUID(),
+    statement: "|a|",
+    score: 1,
+    explanation: "",
+    label: "a"
+  },
+  {
+    id: crypto.randomUUID(),
+    statement: "|b|",
+    score: 0,
+    explanation: "",
+    label: "b"
+  },
+  {
+    id: crypto.randomUUID(),
+    statement: "|c|",
+    score: 0,
+    explanation: "",
+    label: "c"
+  },
+  {
+    id: crypto.randomUUID(),
+    statement: "|d|",
+    score: 0,
+    explanation: "",
+    label: "d"
+  },
+  {
+    id: crypto.randomUUID(),
+    statement: "|e|",
+    score: 0,
+    explanation: "",
+    label: "e"
+  }
+];
+const scope = `{
+"x":{"min":1,"max":100,"round":0},
+"a":"",
+"b":"",
+"c":"",
+"d":"",
+"e":""
+}`;
+export const store = writable({
+  name: "",
+  skills: [],
+  body: { time: Date.now(), blocks: [] },
+  command: "Assinale a resposta correta",
+  alternatives,
+  scope
+});
+let inputSkill = "";
+let inputSkillList = [];
+let inputComponent;
+export let skillOptions;
+function onInputChipSelect(event) {
+  inputSkill = event.detail.label;
+  inputComponent.addChip(inputSkill);
+  $store.skills = skillOptions.filter((s) => inputSkillList.includes(s.label));
+  inputSkill = "";
+}
+function onInvalidHandler(event) {
+  toastStore.trigger({
+    message: `"${event.detail.input}" \xE9 um valor inv\xE1lido. Por favor tente novamente!`,
+    background: "variant-filled-error"
+  });
+}
+function onRemoveHandler(event) {
+  $store.skills = skillOptions.filter((s) => inputSkillList.includes(s.label));
+}
+function isValidSkill(value) {
+  return skillOptions.some((option) => option.label === value);
+}
+function hdlAlternativesChange(e) {
+  $store.alternatives = e.detail.alternatives;
+}
+let taskbody;
+export async function addTask() {
+  $store.body = await taskbody.updBody();
+  return $store;
+}
+</script>
+
+<fieldset>
+	<section id="Task" class="flex flex-col items-center md:px-8">
+		<section id="question" class="md:max-w-[1280px] w-screen px-3 flex flex-col">
+			<section id="title" class="max-w-sm p-4 pb-0">
+				<input
+					class="input h4 text-secondary-500 font-bold"
+					type="text"
+					placeholder="Título..."
+					bind:value={$store.name}
+				/>
+
+				<!-- <h4 class="h4 text-secondary-500 font-bold p-4">{title}</h4> -->
+			</section>
+			<section id="skills" class="p-4 flex flex-col gap-2">
+				<InputChip
+					bind:this={inputComponent}
+					bind:input={inputSkill}
+					bind:value={inputSkillList}
+					on:invalid={onInvalidHandler}
+					on:remove={onRemoveHandler}
+					allowUpperCase={true}
+					validation={isValidSkill}
+					placeholder="Adicionar habilidade..."
+					name="chips"
+					class="card w-full max-w-[90vw] max-h-48 p-4 overflow-y-auto"
+				/>
+				<div class="card w-full max-w-[90vw] max-h-40 p-4 overflow-y-auto" tabindex="-1">
+					<Autocomplete
+						bind:input={inputSkill}
+						options={skillOptions}
+						denylist={inputSkillList}
+						on:selection={onInputChipSelect}
+						emptyState="Habilidade não encontrada."
+						regionEmpty="Não sei o que faz!!!!"
+					/>
+				</div>
+			</section>
+			<section id="body" class=" p-4">
+				<TaskBody bind:this={taskbody} body={$store.body}></TaskBody>
+			</section>
+			<hr class="" />
+			<section id="command" class="self-center">
+				<!-- <input class="bg-surface-200 rounded-lg h2 p-4 my-4" type="text" placeholder="Comando..." /> -->
+				<div
+					contenteditable="true"
+					bind:innerHTML={$store.command}
+					class=" h2 min-h-12 p-4 rounded-lg overflow-wrap-break-words min-w-[60vw]"
+					placeholder="Comando..."
+				/>
+				<!-- <h3 class="h2 p-4">{@html command}</h3> -->
+			</section>
+			<hr class="" />
+		</section>
+		<section id="scope" class="md:max-w-[1280px] w-screen">
+			<div class="grid md:grid-cols-2 p-4 gap-4">
+				<span class="grid gap-4">
+					<h3 class="h3 mx-auto">Scope</h3>
+					<textarea
+						id="w3review"
+						name="w3review"
+						rows="9"
+						cols="50"
+						bind:value={$store.scope}
+						class="bg-surface-50-900-token"
+					/>
+				</span>
+				<span class="grid gap-4">
+					<h3 class="h3 mx-auto">Scope-preview</h3>
+					{@html $store.scope}
+				</span>
+			</div>
+		</section>
+		<section id="alternatives">
+			<div class="flex justify-center">
+				<AlternativesListCard
+					alternatives={$store.alternatives}
+					on:alternativesChanges={hdlAlternativesChange}
+				/>
+			</div>
+		</section>
+	</section>
+	<div class="content p-4 flex justify-center">
+		<!-- <button type="button" class="btn variant-filled-primary md:w-96" on:click={addAlternative}
+			>Adicionar Alternativa</button
+		> -->
+	</div>
+</fieldset>
+
+<style>
+	[contenteditable]:empty:before {
+		content: attr(placeholder);
+		opacity: 0.4;
+	}
+</style>

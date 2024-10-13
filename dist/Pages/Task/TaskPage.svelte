@@ -42,7 +42,7 @@ export let showFeedback = true;
 						{/each}
 					</div>
 				</section>
-				<section id="body">
+				<section id="body" class="m-auto">
 					{#if typeof body === 'string'}
 						<!-- <h4 class="h4 p-4"><TaskBody body={editorBody}></TaskBody></h4> -->
 						<h4 class="h4">

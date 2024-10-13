@@ -21,7 +21,7 @@
 	import { saveTask } from './saveTask';
 	import { validateTask } from './validateTask';
 	import type { TaskRegisterStoreData } from '$lib/types/TaskRegisterStoreData';
-	import { TaskRegisterPage } from '$lib';
+	import  TaskRegisterPage  from '$lib/Pages/Task/TaskRegisterPage.svelte';
 
 	export let data: PageData;
 	let skillOptions = data.skills;
