@@ -1,5 +1,11 @@
 # @aulazero/task
 
+## 0.5.0
+
+### Minor Changes
+
+- cc7135d: Add Katex Editor
+
 ## 0.4.0
 
 ### Minor Changes
