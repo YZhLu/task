@@ -10,26 +10,23 @@
 
 	import { getModalStore } from '@skeletonlabs/skeleton';
 
-	const modalStore = getModalStore();
-
-	const toastStore = getToastStore();
-
-	// import SERVER from '$lib/Pages/config';
-	//import TaskRegisterPage from '$lib/Pages/Task/TaskRegisterPage.svelte';
-
+	
 	import type { PageData } from './$types';
 	import { saveTask } from './saveTask';
 	import { validateTask } from './validateTask';
-	import type { TaskRegisterStoreData } from '$lib/types/TaskRegisterStoreData';
-	import  TaskRegisterPage  from '$lib/Pages/Task/TaskRegisterPage.svelte';
-
+	
+	import TaskRegisterPage from '$lib/Pages/Task/TaskRegisterPage.svelte';
+	
 	export let data: PageData;
 	let skillOptions = data.skills;
 	let skilltree = 'test';
-
+	
+	const modalStore = getModalStore();
+	const toastStore = getToastStore();
+	
 	export let creator = {
-		id: "data.user.teacherId",
-		userId: "data.user.id"
+		id: 'data.user.teacherId',
+		userId: 'data.user.id'
 	};
 
 	let modalData: any;
@@ -133,48 +130,6 @@
 
 			toastStore.trigger(t);
 		}
-
-		//saveTask(store, creator);
-		//toastStore.trigger(t);
-
-		// const alternatives = e.detail.alternatives.map((a: Alternative) => {
-		// 	{
-		// 		const alternative = {
-		// 			id: a.id,
-		// 			statement: a.statement,
-		// 			score: a.score,
-		// 			explanation: a.explanation
-		// 		};
-		// 		return alternative;
-		// 	}
-		// });
-
-		// const res = await fetch(`${SERVER}/tasks/`, {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		'Content-Type': 'application/json'
-		// 	},
-		// 	body: JSON.stringify({
-		// 		id: e.detail.id,
-		// 		name: e.detail.name,
-		// 		skills: e.detail.skills,
-		// 		body: e.detail.body,
-		// 		command: e.detail.command,
-		// 		isTemplate: e.detail.isTemplate,
-		// 		scope: e.detail.scope,
-		// 		//isSingleAnswer: e.detail.isSingleAnswer,
-		// 		//isEssay: e.detail.isEssay,
-		// 		//maxScore: e.detail.maxScore,
-		// 		//answerKey: e.detail.answerKey,
-		// 		alternatives: alternatives,
-		// 		/* feedback: e.detail.feedback, */
-		// 		creator /* : { id: 'c4dde268-a403-494a-904a-701c39164d8b' }, */
-		// 		//essayScore: '0'
-		// 	})
-		// });
-
-		// console.log(res);
-		//alert('salvou!');
 	}
 
 	let taskComponent: TaskRegisterPage;
@@ -184,7 +139,7 @@
 	<svelte:fragment slot="header">
 		<AppBar gridColumns="grid-cols-1">
 			<div class="flex justify-around">
-				<a href="/cadastrar/" type="button" class="btn variant-soft-primary hover:scale-105">
+				<a href="../" type="button" class="btn variant-soft-primary hover:scale-105">
 					<span
 						><img
 							src="https://raw.githubusercontent.com/AulaZero/icons/main/icons/return.svg"

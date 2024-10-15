@@ -70,7 +70,7 @@
 							{@html body}
 						</h4>
 					{:else}
-						<TaskBody {body} />
+						<TaskBody readOnly={true} {body} />
 					{/if}
 				</section>
 				<hr class="" />

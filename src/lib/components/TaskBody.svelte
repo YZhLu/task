@@ -29,10 +29,9 @@
 	onMount(async () => {
 		//const Table = (await import('editorjs-table')).default;
 		// @ts-ignore
+		const ImageTool = (await import('@editorjs/image')).default;
 		// @ts-ignore
 		const Embed = (await import('@editorjs/embed')).default;
-		// @ts-ignore
-		const ImageTool = (await import('@editorjs/image')).default;
 		// @ts-ignore
 		const Checklist = (await import('@editorjs/checklist')).default;
 		// @ts-ignore
@@ -58,9 +57,11 @@
 		//const MathEditor = (await import('editorjs-mathlive')).default;
 		//const EJLaTeX = (await import('editorjs-latex')).default;
 		//const KatexEditor = (await import('katex-editorjs')).default; //from './katex-editor';
+		const KatexEditor = (await import('$lib/svelte/katex')).default; //from './katex-editor';
 
 		const { editor, data, isReady } = createEditor({
 			readOnly,
+			minHeight: 10,
 			onReady() {
 				console.log('data-> ', data);
 			},
@@ -86,9 +87,9 @@
 				superSuperscript: {
 					class: SuperSuperscript
 				},
-				// katexBlock: {
-				// 	class: KatexEditor
-				// },
+				katexBlock: {
+					class: KatexEditor
+				},
 				// Math: {
 				// 	class: EJLaTeX,
 				// 	shortcut: 'CMD+SHIFT+M',
@@ -101,6 +102,7 @@
 					shortcut: 'CMD+SHIFT+H'
 				},
 				quote: {
+					//@ts-ignore
 					class: Quote,
 					inlineToolbar: true,
 					shortcut: 'CMD+SHIFT+O',
@@ -122,6 +124,7 @@
 					}
 				},
 				list: {
+					//@ts-ignore
 					class: List,
 					inlineToolbar: true,
 					config: {

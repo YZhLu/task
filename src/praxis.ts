@@ -37,7 +37,7 @@ export const praxis: CustomThemeConfig = {
 		'--color-secondary-200': '240 191 241', // #f0bff1
 		'--color-secondary-300': '231 153 232', // #e799e8
 		'--color-secondary-400': '214 77 215', // #d64dd7
-		'--color-secondary-500': '117 227 113',//'196 0 198', // #C400C6
+		'--color-secondary-500': '196 0 198', // #C400C6
 		'--color-secondary-600': '176 0 178', // #b000b2
 		'--color-secondary-700': '147 0 149', // #930095
 		'--color-secondary-800': '118 0 119', // #760077

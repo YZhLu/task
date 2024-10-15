@@ -10,16 +10,18 @@ let _isReady;
 export let readOnly = false;
 export let body;
 onMount(async () => {
-  const Embed = (await import("@editorjs/embed")).default;
   const ImageTool = (await import("@editorjs/image")).default;
+  const Embed = (await import("@editorjs/embed")).default;
   const Checklist = (await import("@editorjs/checklist")).default;
   const LinkTool = (await import("@editorjs/link")).default;
   const Superscript = (await import("editorjs2-superscript")).default;
   const SuperSuperscript = (await import("editorjs-superscript")).default;
   const Subscript = (await import("editorjs-subscript")).default;
   const FontSize = (await import("editorjs-inline-font-size-tool")).default;
+  const KatexEditor = (await import("../svelte/katex")).default;
   const { editor, data, isReady } = createEditor({
     readOnly,
+    minHeight: 10,
     onReady() {
       console.log("data-> ", data);
     },
@@ -45,9 +47,9 @@ onMount(async () => {
       superSuperscript: {
         class: SuperSuperscript
       },
-      // katexBlock: {
-      // 	class: KatexEditor
-      // },
+      katexBlock: {
+        class: KatexEditor
+      },
       // Math: {
       // 	class: EJLaTeX,
       // 	shortcut: 'CMD+SHIFT+M',
@@ -59,6 +61,7 @@ onMount(async () => {
         shortcut: "CMD+SHIFT+H"
       },
       quote: {
+        //@ts-ignore
         class: Quote,
         inlineToolbar: true,
         shortcut: "CMD+SHIFT+O",
@@ -80,6 +83,7 @@ onMount(async () => {
         }
       },
       list: {
+        //@ts-ignore
         class: List,
         inlineToolbar: true,
         config: {
