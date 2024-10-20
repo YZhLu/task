@@ -3,7 +3,7 @@
 ```bash
 npm i @aulazero/task
 ```
-Adicione o seguinte elemento ao array do atributo `content` do arquivo `tailwind.config.ts`:
+Adicione o seguinte elemento ao array do atributo `content` do arquivo `tailwind.config.ts`(com as apas):
 ```bash
 './node_modules/@aulazero/task/src/**/*.{html,js,svelte,ts}'
 ```
