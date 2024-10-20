@@ -1,5 +1,11 @@
 # @aulazero/task
 
+## 0.6.0
+
+### Minor Changes
+
+- e9fe185: Change TaskPage Design
+
 ## 0.5.0
 
 ### Minor Changes
