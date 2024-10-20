@@ -26,23 +26,24 @@ export let showFeedback = true;
 
 {#await promise then alternatives}
 	<fieldset disabled={showFeedback}>
-		<section id="Task" class="flex flex-col items-center md:px-8">
-			<section id="question" class="md:max-w-[1280px] w-screen px-3 flex flex-col items-start">
+		<section id="Task" class="flex flex-col items-center">
+			<section id="question" class=" lg:max-w-[768px] lg:px-0 w-screen px-5 flex flex-col items-start">
 				<section id="title">
-					<h4 class="h4 text-secondary-500 font-bold p-4">{title}</h4>
+					<h4 class="h4 text-secondary-500 font-bold py-4">{title}</h4>
 				</section>
 				<section id="skills">
 					<div
-						class="snap-x scroll-px-4 snap-mandatory scroll-smooth flex gap-4 overflow-x-auto p-4"
+						class="snap-x scroll-px-4 snap-mandatory scroll-smooth flex gap-4 overflow-x-auto py-4"
 					>
 						{#each skills as skill, i}
-							<div class="snap-start shrink-0 card text-center">
+							<div class="snap-start shrink-0 card !bg-transparent text-center">
 								<span class="badge variant-filled-primary">{skill.label}</span>
+								
 							</div>
 						{/each}
 					</div>
 				</section>
-				<section id="body" class="m-auto">
+				<section id="body" class="py-4">
 					{#if typeof body === 'string'}
 						<!-- <h4 class="h4 p-4"><TaskBody body={editorBody}></TaskBody></h4> -->
 						<h4 class="h4">
@@ -54,12 +55,12 @@ export let showFeedback = true;
 				</section>
 				<hr class="" />
 				<section id="command">
-					<h3 class="h2 p-4">{@html command}</h3>
+					<h3 class="h3 py-4 font-semibold">{@html command}</h3>
 				</section>
 				<hr class="" />
 			</section>
 			<section id="alternatives">
-				<div class="flex justify-center">
+				<div class="flex justify-center p-1">
 					<AlternativesList
 						{alternatives}
 						bind:selectedAlternative

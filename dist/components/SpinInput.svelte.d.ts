@@ -3,8 +3,8 @@
 /** @typedef {typeof __propDef.slots}  SpinInputSlots */
 export default class SpinInput extends SvelteComponent<{
     value: any;
-    height?: number | undefined;
     width?: number | undefined;
+    height?: number | undefined;
     color?: string | undefined;
     step?: number | undefined;
     min?: number | undefined;
@@ -24,8 +24,8 @@ import { SvelteComponent } from "svelte";
 declare const __propDef: {
     props: {
         value: any;
-        height?: number | undefined;
         width?: number | undefined;
+        height?: number | undefined;
         color?: string | undefined;
         step?: number | undefined;
         min?: number | undefined;

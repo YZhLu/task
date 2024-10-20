@@ -19,11 +19,11 @@
 	}
 </script>
 
-<div class="md:max-w-[1024px] w-screen text-surface-800-100-token">
-	<ListBox class="p-4 " active="variant-filled-tertiary" rounded="rounded-lg">
+<div class="md:max-w-[800px] w-screen text-surface-800-100-token">
+	<ListBox class="py-4" spacing="space-y-0" padding="px-4 py-4" active="variant-filled-tertiary" rounded="rounded-lg">
 		{#each alternatives as alternative, i}
 			<ListBoxItem
-				class="py-8"
+				class=""
 				bind:group={selectedAlternative}
 				name={initials[i]}
 				value={initials[i]}
@@ -31,6 +31,7 @@
 			>
 				<svelte:fragment slot="lead">
 					<Avatar
+						width="w-10"
 						initials={initials[i]}
 						background={selectedAlternative === initials[i] ? 'bg-primary-500' : ''}
 						border={selectedAlternative !== initials[i]
