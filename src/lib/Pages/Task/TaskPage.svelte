@@ -57,8 +57,9 @@
 						class="snap-x scroll-px-4 snap-mandatory scroll-smooth flex gap-4 overflow-x-auto p-4"
 					>
 						{#each skills as skill, i}
-							<div class="snap-start shrink-0 card text-center">
+							<div class="snap-start shrink-0 card !bg-transparent text-center">
 								<span class="badge variant-filled-primary">{skill.label}</span>
+								
 							</div>
 						{/each}
 					</div>
