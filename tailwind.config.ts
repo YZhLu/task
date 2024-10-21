@@ -9,7 +9,16 @@ export default {
 	darkMode: 'class',
 	content: ['./src/**/*.{html,js,svelte,ts}', join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				Nunito: ['Nunito', 'sans-serif'],
+				Tungsten: ['Tungsten', 'sans-serif'],
+				Valorant: ['Valorant', 'sans-serif'],
+				FeastFBB: ['FeastFBB', 'sans-serif'],
+				Manga: ['Manga', 'sans-serif'],
+				AngryB: ['AngryB', 'sans-serif']
+			}
+		}
 	},
 	plugins: [
 		forms,
