@@ -1,5 +1,11 @@
 # @aulazero/task
 
+## 0.7.0
+
+### Minor Changes
+
+- 2364f42: add fonts and Task type
+
 ## 0.6.1
 
 ### Patch Changes
