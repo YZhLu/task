@@ -1,5 +1,11 @@
 # @aulazero/task
 
+## 0.6.1
+
+### Patch Changes
+
+- 2790b67: Fix Alternative types
+
 ## 0.6.0
 
 ### Minor Changes
