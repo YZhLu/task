@@ -1,13 +1,23 @@
 <script>import { createEventDispatcher } from "svelte";
+import { Avatar, ListBox, ListBoxItem } from "@skeletonlabs/skeleton";
 const dispatch = createEventDispatcher();
 export let alternatives;
-import { Avatar, ListBox, ListBoxItem } from "@skeletonlabs/skeleton";
 export let selectedAlternative;
 export let showFeedback;
 let initials = ["a", "b", "c", "d", "e"];
-function hdlSelectedAlternative() {
+let alternative = {
+  id: "",
+  statement: "",
+  score: 0,
+  explanation: "",
+  label: "",
+  checked: false
+};
+function hdlSelectedAlternative(i) {
+  alternative = alternatives[i];
   dispatch("selectedAlternative", {
-    selectedAlternative
+    selectedAlternative,
+    alternative
   });
 }
 </script>
@@ -20,7 +30,7 @@ function hdlSelectedAlternative() {
 				bind:group={selectedAlternative}
 				name={initials[i]}
 				value={initials[i]}
-				on:change={hdlSelectedAlternative}
+				on:change={()=>hdlSelectedAlternative(i)}
 			>
 				<svelte:fragment slot="lead">
 					<Avatar

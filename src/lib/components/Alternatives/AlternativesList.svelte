@@ -1,20 +1,30 @@
 <script lang="ts">
 	import type { Alternative } from '$lib/types/Alternative';
 	import { createEventDispatcher } from 'svelte';
+	import { Avatar, ListBox, ListBoxItem } from '@skeletonlabs/skeleton';
 
 	const dispatch = createEventDispatcher();
 
 	export let alternatives: Alternative[];
-
-	import { Avatar, ListBox, ListBoxItem } from '@skeletonlabs/skeleton';
 	export let selectedAlternative: string;
 	export let showFeedback: boolean;
-	let initials = ['a', 'b', 'c', 'd', 'e'];
 
-	function hdlSelectedAlternative() {
+	let initials = ['a', 'b', 'c', 'd', 'e'];
+	let alternative: Alternative = {
+			id: '',
+			statement: '',
+			score: 0,
+			explanation: '',
+			label: '',
+			checked: false
+		};
+
+	function hdlSelectedAlternative(i: number) {
+		alternative = alternatives[i];
 		//console.log("na comp", selectedAlternative, console.log(alternatives))
 		dispatch('selectedAlternative', {
-			selectedAlternative
+			selectedAlternative,
+			alternative
 		});
 	}
 </script>
@@ -27,7 +37,7 @@
 				bind:group={selectedAlternative}
 				name={initials[i]}
 				value={initials[i]}
-				on:change={hdlSelectedAlternative}
+				on:change={()=>hdlSelectedAlternative(i)}
 			>
 				<svelte:fragment slot="lead">
 					<Avatar
