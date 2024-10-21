@@ -3,9 +3,9 @@
 ```bash
 npm i @aulazero/task
 ```
-Adicione o seguinte elemento ao array do atributo `content` do arquivo `tailwind.config.ts`(com as apas):
+Adicione o seguinte elemento ao final array do atributo `content` do arquivo `tailwind.config.ts`(com as apas):
 ```bash
-'./node_modules/@aulazero/task/src/**/*.{html,js,svelte,ts}'
+'./node_modules/@aulazero/task/dist/**/*.{html,js,svelte,ts}'
 ```
 >Será algo parecido com: 
 `content: ['./src/**/*.{html,js,svelte,ts}', join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')],`
