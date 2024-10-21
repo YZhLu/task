@@ -1,6 +1,6 @@
 {
 	"name": "@aulazero/task",
-	"version": "0.7.0",
+	"version": "0.7.1",
 	"description": "This is a working in progress project.",
 	"scripts": {
 		"dev": "vite dev",

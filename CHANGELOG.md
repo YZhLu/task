@@ -1,5 +1,11 @@
 # @aulazero/task
 
+## 0.7.1
+
+### Patch Changes
+
+- d2038f1: bug fix
+
 ## 0.7.0
 
 ### Minor Changes
