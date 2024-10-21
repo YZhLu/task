@@ -3,6 +3,6 @@ export type Alternative = {
     statement: string;
     score: number;
     explanation: string;
-    label?: string;
-    checked?: boolean;
+    label: string;
+    checked: boolean;
 };
