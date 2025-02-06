@@ -1,5 +1,11 @@
 # @aulazero/task
 
+## 0.7.2
+
+### Patch Changes
+
+- 9d277f2: update dependencies
+
 ## 0.7.1
 
 ### Patch Changes
